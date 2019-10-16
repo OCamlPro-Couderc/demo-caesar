@@ -19,11 +19,11 @@ int absolute_int(int x)
     return abs_x;
 }
 
-char *caesar_encrypt(char *str, int shift)
+char *caesar_encrypt(char *str, int str_len, int shift)
 {
     int abs_shift = absolute_int(shift);
     int i = 0;
-    char *buf = (char *)malloc(33);
+    char *buf = (char *)malloc(str_len);
 
     while (*str) {
         if (*str >= 'a' && *str <= 'z')
@@ -37,14 +37,15 @@ char *caesar_encrypt(char *str, int shift)
         str++;
     }
     buf[i] = '\0';
+
     return buf;
 }
 
-char *caesar_decrypt(char *str, int shift)
+char *caesar_decrypt(char *str, int str_len, int shift)
 {
     int abs_shift = absolute_int(shift);
     int i = 0;
-    char *buf = (char *)malloc(33);
+    char *buf = (char *)malloc(str_len);
 
     while (*str) {
         if (*str >= 'a' && *str <= 'z')
@@ -58,5 +59,6 @@ char *caesar_decrypt(char *str, int shift)
         str++;
     }
     buf[i] = '\0';
+
     return buf;
 }
